@@ -94,6 +94,14 @@ API tests stop at their first failing assertion. Later checks, including success
 - Ran `npm run build --prefix octofit-tracker/backend`: passed.
 - No failing API contracts remain. Next presentation test: `npm test --prefix octofit-tracker/frontend -- -t "renders activity data from the API"`. React files remain unchanged.
 
+### Presentation implementation checkpoint (2026-11-17)
+
+- Ran `npm test --prefix octofit-tracker/frontend -- tests/app.contract.test.tsx`: 4 passed, 11 failed. Activities already passed; teams, leaderboard, and workouts were placeholders.
+- Connected those three pages using the shared API client and the activity page's state pattern. Teams show names and member counts; leaderboard shows API-provided ranks and points; workouts show titles and reasons for the seeded demo user `mona@example.com`. Loading statuses, meaningful empty states, and error alerts remain accessible. No authentication or browser-side business rules were added.
+- Reran the same frontend contract command: all 15 tests passed.
+- Ran `npm run build --prefix octofit-tracker/frontend`: TypeScript checking and the Vite production build passed.
+- Backend/data tests and the seeded live integration check were not rerun for this UI-only change.
+
 ### Validation gates
 
 - After model changes, rerun the data-tier command and require all five tests to pass, including the existing seed regression test.
